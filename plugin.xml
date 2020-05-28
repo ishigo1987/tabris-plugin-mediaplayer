@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<plugin xmlns='http://apache.org/cordova/ns/plugins/1.0' xmlns:android='http://schemas.android.com/apk/res/android' id='tabris-plugin-socket.io' version='0.0.1'>
+
+  <name>Tabris.js MediaPlayer Plugin</name>
+  <description>???</description>
+  <author>fax1ty</author>
+  <license>MIT</license>
+
+  <!-- cordova -->
+  <engines>
+    <engine name='cordova' version='>=3.8.0' />
+  </engines>
+
+  <js-module src='www/MediaPlayer.js' name='mediaplayer'>
+    <clobbers target='MediaPlayer' />
+  </js-module>
+
+  <platform name='android'>
+    <config-file target='AndroidManifest.xml' parent='/manifest/application'>
+      <meta-data android:name='com.eclipsesource.tabris.android.HANDLER.ru.fax1ty.tabris.mediaplayer.mediaplayer' android:value='ru.fax1ty.tabris.mediaplayer.MediaPlayer' />
+    </config-file>
+
+    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayer.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerCompleteListener.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerErrorListener.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerHandler.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerReadyListener.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
+  </platform>
+
+</plugin>
