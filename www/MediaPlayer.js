@@ -59,4 +59,10 @@ Object.assign(MediaPlayer.prototype, {
   }
 });
 
+tabris.NativeObject.defineProperties(Map.prototype, {
+  url: { type: 'string', nocache: true },
+  loop: { type: 'boolean', nocache: true },
+  autoPlay: { type: 'boolean', default: false }
+});
+
 module.exports = MediaPlayer;
