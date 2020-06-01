@@ -63,4 +63,18 @@ tabris.NativeObject.defineEvents(MediaPlayer.prototype, {
   ready: { native: true },
 });
 
+tabris.NativeObject.defineProperties(BarcodeScannerView.prototype, {
+  'url': {
+    type: 'string'
+  },
+  'autoPlay': {
+    type: 'boolean',
+    default: false
+  },
+  'loop': {
+    type: 'boolean',
+    default: false
+  },
+});
+
 module.exports = MediaPlayer;
