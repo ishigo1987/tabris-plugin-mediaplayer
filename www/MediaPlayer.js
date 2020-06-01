@@ -63,7 +63,7 @@ tabris.NativeObject.defineEvents(MediaPlayer.prototype, {
   ready: { native: true },
 });
 
-tabris.NativeObject.defineProperties(BarcodeScannerView.prototype, {
+tabris.NativeObject.defineProperties(MediaPlayer.prototype, {
   'url': {
     type: 'string'
   },
