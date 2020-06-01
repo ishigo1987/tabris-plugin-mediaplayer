@@ -65,7 +65,8 @@ tabris.NativeObject.defineEvents(MediaPlayer.prototype, {
 
 tabris.NativeObject.defineProperties(MediaPlayer.prototype, {
   'url': {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   'autoPlay': {
     type: 'boolean',
