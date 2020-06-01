@@ -4,7 +4,7 @@
 
 ```ts
 let mediaPlayer = new MediaPlayer({ url: 'urlHere' });
-mediaPlayer.start();
+mediaPlayer.play();
 ```
 
 or
