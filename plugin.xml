@@ -17,7 +17,11 @@
 
   <platform name='android'>
     <config-file target='AndroidManifest.xml' parent='/manifest/application'>
-      <meta-data android:name='com.eclipsesource.tabris.android.HANDLER.ru.fax1ty.tabris.mediaplayer.mediaplayer' android:value='ru.fax1ty.tabris.mediaplayer.MediaPlayer' />
+      <meta-data android:name='com.eclipsesource.tabris.android.HANDLER.ru.fax1ty.tabris.mediaplayer' android:value='ru.fax1ty.tabris.mediaplayer.MediaPlayerHandler' />
+    </config-file>
+
+    <config-file target='AndroidManifest.xml' parent='/manifest'>
+      <uses-permission android:name='android.permission.INTERNET' />
     </config-file>
 
     <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayer.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
