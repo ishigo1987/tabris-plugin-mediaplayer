@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<plugin xmlns='http://apache.org/cordova/ns/plugins/1.0' xmlns:android='http://schemas.android.com/apk/res/android' id='tabris-plugin-mediaplayer' version='0.0.1'>
+<plugin xmlns='http://apache.org/cordova/ns/plugins/1.0' xmlns:android='http://schemas.android.com/apk/res/android' id='tabris-plugin-mediaplayer' version='0.0.2'>
 
   <name>Tabris.js MediaPlayer Plugin</name>
   <description>???</description>
@@ -11,24 +11,38 @@
     <engine name='cordova' version='>=3.8.0' />
   </engines>
 
-  <js-module src='www/MediaPlayer.js' name='mediaplayer'>
-    <clobbers target='MediaPlayer' />
+  <js-module src='www/AudioPlayer.js' name='audioplayer'>
+    <clobbers target='AudioPlayer' />
   </js-module>
 
   <platform name='android'>
     <config-file target='AndroidManifest.xml' parent='/manifest/application'>
-      <meta-data android:name='com.eclipsesource.tabris.android.HANDLER.ru.fax1ty.tabris.mediaplayer' android:value='ru.fax1ty.tabris.mediaplayer.MediaPlayerHandler' />
+      <meta-data android:name='com.eclipsesource.tabris.android.HANDLER.ru.fax1ty.tabris.audioplayer' android:value='ru.fax1ty.tabris.audioplayer.AudioPlayerHandler' />
+
+      <service android:enabled='true' android:name='ru.fax1ty.tabris.audioplayer.AudioPlayerService' android:exported='false' android:foregroundServiceType='mediaPlayback'>
+        <intent-filter>
+          <action android:name='ru.fax1ty.tabris.audioplayer.CREATE' />
+          <action android:name='ru.fax1ty.tabris.audioplayer.PLAY' />
+          <action android:name='ru.fax1ty.tabris.audioplayer.PAUSE' />
+          <action android:name='ru.fax1ty.tabris.audioplayer.SEEK' />
+          <action android:name='ru.fax1ty.tabris.audioplayer.SET_LOOP' />
+          <action android:name='ru.fax1ty.tabris.audioplayer.UPDATE' />
+        </intent-filter>
+      </service>
+      >
     </config-file>
 
     <config-file target='AndroidManifest.xml' parent='/manifest'>
       <uses-permission android:name='android.permission.INTERNET' />
     </config-file>
 
-    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayer.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
-    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerCompleteListener.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
-    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerErrorListener.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
-    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerHandler.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
-    <source-file src='src/android/ru/fax1ty/tabris/mediaplayer/MediaPlayerReadyListener.kt' target-dir='src/ru/fax1ty/tabris/mediaplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/audioplayer/AudioPlayer.kt' target-dir='src/ru/fax1ty/tabris/audioplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/audioplayer/AudioPlayerHandler.kt' target-dir='src/ru/fax1ty/tabris/audioplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/audioplayer/AudioPlayerService.kt' target-dir='src/ru/fax1ty/tabris/audioplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/audioplayer/IsPlayingProperty.kt' target-dir='src/ru/fax1ty/tabris/audioplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/audioplayer/LoopProperty.kt' target-dir='src/ru/fax1ty/tabris/audioplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/audioplayer/PositionProperty.kt' target-dir='src/ru/fax1ty/tabris/audioplayer' />
+    <source-file src='src/android/ru/fax1ty/tabris/audioplayer/Utils.kt' target-dir='src/ru/fax1ty/tabris/audioplayer' />
   </platform>
 
 </plugin>

@@ -3,19 +3,25 @@
 ## Example
 
 ```ts
-let mediaPlayer = new MediaPlayer({ url: 'urlHere' });
-mediaPlayer.play();
+let audioPlayer = new AudioPlayer({ url: 'urlHere' });
+audioPlayer.play();
 ```
 
 or
 
 ```ts
-new MediaPlayer({ url: 'urlhere', autoPlay: true });
+new AudioPlayer({ url: 'urlhere', autoPlay: true });
+```
+
+To stop player from playing
+
+```ts
+audioPlayer.dispose();
 ```
 
 ## Android
 
-1. Doesn't work in the background yet
+1. You cannot create more than one instance of an object
 
 
 ## iOS

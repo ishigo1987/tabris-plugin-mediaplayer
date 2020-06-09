@@ -10,3 +10,4 @@ project/
 *.iml
 local.properties
 npm-debug.log*
+yarn.lock
