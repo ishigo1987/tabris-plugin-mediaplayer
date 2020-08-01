@@ -16,7 +16,7 @@
   </js-module>
 
   <platform name='android'>
-    <config-file target='AndroidManifest.xml' parent='/manifest/application'>
+    <config-file target='AndroidManifest.xml' parent='/manifest/application' mode="merge">
       <meta-data android:name='com.eclipsesource.tabris.android.HANDLER.ru.fax1ty.tabris.audioplayer' android:value='ru.fax1ty.tabris.audioplayer.AudioPlayerHandler' />
 
       <service android:enabled='true' android:name='ru.fax1ty.tabris.audioplayer.AudioPlayerService' android:exported='false' android:foregroundServiceType='mediaPlayback'>
