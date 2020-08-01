@@ -19,7 +19,7 @@
     <config-file target='AndroidManifest.xml' parent='/manifest/application' mode="merge">
       <meta-data android:name='com.eclipsesource.tabris.android.HANDLER.ru.fax1ty.tabris.audioplayer' android:value='ru.fax1ty.tabris.audioplayer.AudioPlayerHandler' />
 
-      <service android:enabled='true' android:name='ru.fax1ty.tabris.audioplayer.AudioPlayerService' android:exported='false' android:foregroundServiceType='mediaPlayback' tools:remove="android:foregroundServiceType">
+      <service android:enabled='true' android:name='ru.fax1ty.tabris.audioplayer.AudioPlayerService' android:exported='false' tools:remove="android:foregroundServiceType">
         <intent-filter>
           <action android:name='ru.fax1ty.tabris.audioplayer.CREATE' />
           <action android:name='ru.fax1ty.tabris.audioplayer.PLAY' />
