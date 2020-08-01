@@ -29,7 +29,6 @@
           <action android:name='ru.fax1ty.tabris.audioplayer.UPDATE' />
         </intent-filter>
       </service>
-      >
     </config-file>
 
     <config-file target='AndroidManifest.xml' parent='/manifest'>
