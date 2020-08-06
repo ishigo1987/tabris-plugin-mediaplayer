@@ -8,11 +8,26 @@ import java.io.File
 
 class MediaPlayer(activity: Activity, url: String, loop: Boolean, autoPlay: Boolean) {
 
-    var mediaPlayer: MediaPlayer? = MediaPlayer.create(activity.applicationContext, if (url.contains("http", true)) Uri.parse(url) else Uri.fromFile(File(url))).apply {
-        setAudioAttributes(AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build())
+//     var mediaPlayer: MediaPlayer? = MediaPlayer.create(activity.applicationContext, if (url.contains("http", true)) Uri.parse(url) else Uri.fromFile(File(url))).apply {
+//         setAudioAttributes(AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build())
+//         isLooping = loop
+//         if (autoPlay) start()
+//     }
+    
+    
+    var mediaPlayer: MediaPlayer? = MediaPlayer().apply {
+        setAudioAttributes(
+            AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .build()
+        )
+        setDataSource(activity.applicationContext, if (url.contains("http", true)) Uri.parse(url) else Uri.fromFile(File(url)))
         isLooping = loop
+        prepareAsync()
         if (autoPlay) start()
-    }
+   }
+    
 
     fun play() {
         if (!mediaPlayer!!.isPlaying) mediaPlayer?.start()
